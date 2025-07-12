@@ -1,13 +1,15 @@
-import nextra from 'nextra'
-
-const withNextra = nextra({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx',
-  output: 'export'
-})
+import { withNextra } from 'nextra/config'
 
 export default withNextra({
-  basePath: '/info3d',  // Add this line to specify the base path for GitHub Pages
+  // no more `theme` or `themeConfig`
+  output: 'export',
+  // if you still need a custom content dir:
+  // contentDirBasePath: 'docs',
+  experimental: {
+    // ensure you’re on the App Router
+    appDir: true
+  },
+  basePath: '/info3d',
   trailingSlash: true,
   images: { unoptimized: true }
 })
